@@ -14,6 +14,7 @@ import {
 import { Menu, Search, Settings, LogOut, User, HelpCircle, Grid3X3 } from "lucide-react"
 import { useMobile } from "@/hooks/use-mobile"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 interface DriveHeaderProps {
   onMenuClick: () => void
@@ -60,11 +61,14 @@ export function DriveHeader({ onMenuClick }: DriveHeaderProps) {
         </Button>
         <div className="flex items-center gap-1 sm:gap-2">
           {/* Google Drive Logo */}
-          <svg width="40" height="40" viewBox="0 0 40 40" className="text-[#1a73e8]">
-            <path fill="#0f9d58" d="m12.5 25.5 4.5-7.8 7.8 13.5H8.2z" />
-            <path fill="#f9ab00" d="m25 25.5-4.5 7.8L12.7 20h15.6z" />
-            <path fill="#4285f4" d="M12.5 25.5 20.5 12l7.8 13.5z" />
-          </svg>
+          <Image 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1920px-Google_Drive_icon_%282020%29.svg.png?20221103153031"
+            alt="Google Drive"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+
           <span className="text-[18px] sm:text-[22px] font-normal text-[#5f6368]">Drive</span>
         </div>
       </div>
@@ -119,7 +123,7 @@ export function DriveHeader({ onMenuClick }: DriveHeaderProps) {
         </div>
       )}
 
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 ml-auto">
         {!isMobile && (
           <>
             <Button variant="ghost" size="sm" className="hover:bg-[#f1f3f4] rounded-full w-12 h-12">

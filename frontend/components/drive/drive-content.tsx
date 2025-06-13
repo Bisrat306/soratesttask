@@ -11,6 +11,8 @@ import { FileUploadModal } from "./file-upload-modal"
 import { CreateFolderModal } from "./create-folder-modal"
 import { ShareModal } from "./share-modal"
 import { toast } from "sonner"
+import Image from "next/image"
+import { GoogleLogo } from "@/components/ui/google-logo"
 
 interface DriveContentProps {
   files: any[]
@@ -137,7 +139,7 @@ export function DriveContent({
   return (
     <div className="flex flex-col h-full bg-white">
       <div className="border-b border-[#e8eaed]">
-        <div className="p-4">
+        <div className="p-4 flex items-center gap-4">
           <Breadcrumbs path={currentPath} onBack={onBack} />
         </div>
 
@@ -162,7 +164,7 @@ export function DriveContent({
             </Button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="text-[#5f6368] hover:bg-[#f1f3f4]">
@@ -170,7 +172,7 @@ export function DriveContent({
                   Type
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="end">
                 <DropdownMenuItem>All</DropdownMenuItem>
                 <DropdownMenuItem>Documents</DropdownMenuItem>
                 <DropdownMenuItem>Images</DropdownMenuItem>
@@ -185,7 +187,7 @@ export function DriveContent({
                   Name
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setSortBy("name")}>Name</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortBy("modified")}>Last modified</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortBy("size")}>Size</DropdownMenuItem>
